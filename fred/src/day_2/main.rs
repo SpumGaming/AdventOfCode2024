@@ -62,11 +62,9 @@ mod part_2 {
             for index in 0..input.len() {
                 let mut input_clone = input.clone();
                 input_clone.remove(index);
-                dbg!(&input_clone);
                 if input_clone.windows(2).all(|adjacent_vals| {
                     is_gradually_increasing((adjacent_vals[0], adjacent_vals[1]))
                 }) {
-                    dbg!("returning true");
                     return true;
                 }
             }
@@ -85,11 +83,9 @@ mod part_2 {
             for index in 0..input.len() {
                 let mut input_clone = input.clone();
                 input_clone.remove(index);
-                dbg!(&input_clone);
                 if input_clone.windows(2).all(|adjacent_vals| {
                     is_gradually_decreasing((adjacent_vals[0], adjacent_vals[1]))
                 }) {
-                    dbg!("returning true");
                     return true;
                 }
             }
