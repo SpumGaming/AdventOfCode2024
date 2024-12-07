@@ -257,14 +257,19 @@ mod part_2 {
                 is_infinite_loop = false;
                 break;
             }
-            if will_walk_into_obstacle(&grid_clone, guard_coords, direction) == true {
-                direction = match direction {
-                    Direction::Up => Direction::Right,
-                    Direction::Right => Direction::Down,
-                    Direction::Down => Direction::Left,
-                    Direction::Left => Direction::Up,
+
+            // can have cases where you immediately need to turn multiple times
+            for _ in 0..4 {
+                if will_walk_into_obstacle(&grid_clone, guard_coords, direction) == true {
+                    direction = match direction {
+                        Direction::Up => Direction::Right,
+                        Direction::Right => Direction::Down,
+                        Direction::Down => Direction::Left,
+                        Direction::Left => Direction::Up,
+                    }
                 }
             }
+
             // check again then move and set previous coords to visited
             if is_at_edge_of_map(&grid_clone, guard_coords, direction) {
                 grid_clone[guard_coords.0][guard_coords.1] = Tile::Visited;
