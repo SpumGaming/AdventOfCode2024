@@ -17,7 +17,7 @@ mod part_1 {
         let reader = io::BufReader::new(file);
         let lines = reader.lines().map(Result::unwrap).collect::<Vec<_>>();
 
-        let divider_line_index = lines.iter().position(|line| line == "").unwrap();
+        let divider_line_index = lines.iter().position(|line| line.is_empty()).unwrap();
         let rules = lines[0..divider_line_index]
             .iter()
             .map(|line| line.split_once("|").unwrap())
@@ -94,7 +94,7 @@ mod part_2 {
         let reader = io::BufReader::new(file);
         let lines = reader.lines().map(Result::unwrap).collect::<Vec<_>>();
 
-        let divider_line_index = lines.iter().position(|line| line == "").unwrap();
+        let divider_line_index = lines.iter().position(|line| line.is_empty()).unwrap();
         let rules = lines[0..divider_line_index]
             .iter()
             .map(|line| line.split_once("|").unwrap())

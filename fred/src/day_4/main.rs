@@ -31,21 +31,13 @@ mod part_1 {
                         {
                             matches += 1
                         }
-                        if line_index >= 3 {
-                            if lines[line_index - 1][column_index - 1] == 'M'
-                                && lines[line_index - 2][column_index - 2] == 'A'
-                                && lines[line_index - 3][column_index - 3] == 'S'
-                            {
-                                matches += 1
-                            }
+                        if line_index >= 3 && lines[line_index - 1][column_index - 1] == 'M'
+                                && lines[line_index - 2][column_index - 2] == 'A' && lines[line_index - 3][column_index - 3] == 'S' {
+                            matches += 1
                         }
-                        if line_index + 3 < lines.len() {
-                            if lines[line_index + 1][column_index - 1] == 'M'
-                                && lines[line_index + 2][column_index - 2] == 'A'
-                                && lines[line_index + 3][column_index - 3] == 'S'
-                            {
-                                matches += 1
-                            }
+                        if line_index + 3 < lines.len() && lines[line_index + 1][column_index - 1] == 'M'
+                                && lines[line_index + 2][column_index - 2] == 'A' && lines[line_index + 3][column_index - 3] == 'S' {
+                            matches += 1
                         }
                     }
                     if column_index + 3 < line.len() {
@@ -55,38 +47,22 @@ mod part_1 {
                         {
                             matches += 1
                         }
-                        if line_index >= 3 {
-                            if lines[line_index - 1][column_index + 1] == 'M'
-                                && lines[line_index - 2][column_index + 2] == 'A'
-                                && lines[line_index - 3][column_index + 3] == 'S'
-                            {
-                                matches += 1
-                            }
+                        if line_index >= 3 && lines[line_index - 1][column_index + 1] == 'M'
+                                && lines[line_index - 2][column_index + 2] == 'A' && lines[line_index - 3][column_index + 3] == 'S' {
+                            matches += 1
                         }
-                        if line_index + 3 < lines.len() {
-                            if lines[line_index + 1][column_index + 1] == 'M'
-                                && lines[line_index + 2][column_index + 2] == 'A'
-                                && lines[line_index + 3][column_index + 3] == 'S'
-                            {
-                                matches += 1
-                            }
-                        }
-                    }
-                    if line_index >= 3 {
-                        if lines[line_index - 1][column_index] == 'M'
-                            && lines[line_index - 2][column_index] == 'A'
-                            && lines[line_index - 3][column_index] == 'S'
-                        {
+                        if line_index + 3 < lines.len() && lines[line_index + 1][column_index + 1] == 'M'
+                                && lines[line_index + 2][column_index + 2] == 'A' && lines[line_index + 3][column_index + 3] == 'S' {
                             matches += 1
                         }
                     }
-                    if line_index + 3 < lines.len() {
-                        if lines[line_index + 1][column_index] == 'M'
-                            && lines[line_index + 2][column_index] == 'A'
-                            && lines[line_index + 3][column_index] == 'S'
-                        {
-                            matches += 1
-                        }
+                    if line_index >= 3 && lines[line_index - 1][column_index] == 'M'
+                            && lines[line_index - 2][column_index] == 'A' && lines[line_index - 3][column_index] == 'S' {
+                        matches += 1
+                    }
+                    if line_index + 3 < lines.len() && lines[line_index + 1][column_index] == 'M'
+                            && lines[line_index + 2][column_index] == 'A' && lines[line_index + 3][column_index] == 'S' {
+                        matches += 1
                     }
                 }
             }

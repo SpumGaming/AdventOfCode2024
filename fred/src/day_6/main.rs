@@ -66,7 +66,7 @@ mod part_1 {
                 grid[guard_coords.0][guard_coords.1] = Tile::Visited;
                 break;
             }
-            if will_walk_into_obstacle(&grid, guard_coords, direction) == true {
+            if will_walk_into_obstacle(&grid, guard_coords, direction) {
                 direction = match direction {
                     Direction::Up => Direction::Right,
                     Direction::Right => Direction::Down,
@@ -122,17 +122,11 @@ mod part_1 {
             Direction::Right => (coords.0, coords.1 + 1),
             Direction::Left => (coords.0, coords.1 - 1),
         };
-        if grid
+        grid
             .get(potential_next_coords.0)
             .unwrap()
             .get(potential_next_coords.1)
-            .unwrap()
-            == &Tile::Obstacle
-        {
-            true
-        } else {
-            false
-        }
+            .unwrap() == &Tile::Obstacle
     }
 
     fn is_at_edge_of_map(
@@ -145,32 +139,16 @@ mod part_1 {
         // dbg!(&direction);
         match direction {
             Direction::Up => {
-                if coords.0 == 0 {
-                    true
-                } else {
-                    false
-                }
+                coords.0 == 0
             }
             Direction::Left => {
-                if coords.1 == 0 {
-                    true
-                } else {
-                    false
-                }
+                coords.1 == 0
             }
             Direction::Down => {
-                if coords.0 == grid.len() - 1 {
-                    true
-                } else {
-                    false
-                }
+                coords.0 == grid.len() - 1
             }
             Direction::Right => {
-                if coords.1 == grid[0].len() - 1 {
-                    true
-                } else {
-                    false
-                }
+                coords.1 == grid[0].len() - 1
             }
         }
     }
@@ -260,7 +238,7 @@ mod part_2 {
 
             // can have cases where you immediately need to turn multiple times
             for _ in 0..4 {
-                if will_walk_into_obstacle(&grid_clone, guard_coords, direction) == true {
+                if will_walk_into_obstacle(&grid_clone, guard_coords, direction) {
                     direction = match direction {
                         Direction::Up => Direction::Right,
                         Direction::Right => Direction::Down,
@@ -310,17 +288,11 @@ mod part_2 {
             Direction::Right => (coords.0, coords.1 + 1),
             Direction::Left => (coords.0, coords.1 - 1),
         };
-        if grid
+        grid
             .get(potential_next_coords.0)
             .unwrap()
             .get(potential_next_coords.1)
-            .unwrap()
-            == &Tile::Obstacle
-        {
-            true
-        } else {
-            false
-        }
+            .unwrap() == &Tile::Obstacle
     }
 
     fn is_at_edge_of_map(
@@ -333,32 +305,16 @@ mod part_2 {
         // dbg!(&direction);
         match direction {
             Direction::Up => {
-                if coords.0 == 0 {
-                    true
-                } else {
-                    false
-                }
+                coords.0 == 0
             }
             Direction::Left => {
-                if coords.1 == 0 {
-                    true
-                } else {
-                    false
-                }
+                coords.1 == 0
             }
             Direction::Down => {
-                if coords.0 == grid.len() - 1 {
-                    true
-                } else {
-                    false
-                }
+                coords.0 == grid.len() - 1
             }
             Direction::Right => {
-                if coords.1 == grid[0].len() - 1 {
-                    true
-                } else {
-                    false
-                }
+                coords.1 == grid[0].len() - 1
             }
         }
     }
